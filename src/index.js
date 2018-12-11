@@ -89,7 +89,7 @@ class App extends Component{
                 <h1>No Issue</h1>
                 <form onSubmit={this.handleSubmit}>
                     <QuestionsList handleInputChange={this.handleInputChange} {...this.state} questions={this.props.config.questions}/>
-                    <button type="submit">Submit</button>
+                    <div className="text-center"><button type="submit">Submit</button></div>
                 </form>
             </div>
 
