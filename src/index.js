@@ -4,16 +4,16 @@ import "scss/base.scss";
 
 const SelectOption = (props) => {
     return (        
-        props.options.map((opt,index)=> <option key={index} value={opt}>{opt}</option>)
+         <option value={props.option}>{props.option}</option>
     )
 }
 
 const FormType = (props)=>{
     if(props.type == 'dropdown'){
-        retun (
+        return (
             <div>
                 <select>
-                    <SelectOption {...props.options}/>
+                    {props.options.map((opt,index)=><SelectOption key={index} option={opt}/>)}
                 </select>
             </div>
         )
@@ -39,7 +39,7 @@ const Subquestions = (props) =>{
     return (
         <div>
             <legend>{title}</legend>
-            {fields.map((field)=><QuestionFormField {...field} />)}
+            {fields.map((field,index)=><QuestionFormField key={index} {...field} />)}
         </div>
     )
 }
@@ -48,7 +48,7 @@ const QuestionsList = (props) =>{
     const {questions} = props
     return (
         <div>
-            {questions.map((question)=> <Subquestions {...question}/>)}
+            {questions.map((question,index)=> <Subquestions key={index} {...question}/>)}
         </div>
     )
 }
